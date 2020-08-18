@@ -1,3 +1,15 @@
+How to start Friendly Reminder 
+
+1. run bundle install
+2. run rake db:migrate
+3. run rake db:seed
+4. run ruby runner.rb
+5. prepare for your friendly reminder! 
+
+
+
+
+
 # Mod 1 ActiveRecord Starter Repo
 
 In `config/database.yml`, you can change the name of the database from `db/cats.sqlite3` to whatever reflects your project. For example: `db/notes.sqlite3`. Doesn't really matter what you call the db. 

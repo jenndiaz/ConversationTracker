@@ -15,8 +15,14 @@ class Cli
             else
                 Account.create(username: @username_input)
                 puts "Welcome, new friend, #{@username_input}!"
+                
             end
+            main_menu
         end
+    end
+
+    def main_menu 
+
     end
 
     
