@@ -1,5 +1,6 @@
+require "tty-prompt"
 class Cli 
-    prompt = TTY::Prompt.new
+    Prompt = TTY::Prompt.new
     attr_accessor :username_input
 
     def welcome 
@@ -29,34 +30,19 @@ class Cli
             "View Your Friends" => 4, 
             "Exit Friendly Reminder" => 5
         }
-
-        menu_response = prompt.select("Choose an option from below:")
-        case menu_response
-        when 1
+        # menu_response = Prompt.select("Choose an option from below:")
+        # case menu_response
+        # when 1
             
-        when 2
+        # when 2
 
-        when 3 
+        # when 3 
 
-        when 4 
+        # when 4 
         
-        when 5 
-            puts "We hope you enjoied your Friendly Reminder! Come back soon!"
-            welcome
-        end
+        # when 5 
+        #     puts "We hope you enjoied your Friendly Reminder! Come back soon!"
+        #     welcome
+        # end
 
     end
-
-    
-
-
-
-
-
-
-#    # Request username input from user and save to variable
-#    puts "Enter a new or existing username to continue:".light_yellow
-#    username_response = gets.chomp
-
-#    # Access User.find_user method to determine if user is new or existing
-#    User.find_user(username_response)
