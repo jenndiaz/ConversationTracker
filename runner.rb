@@ -1,10 +1,10 @@
 require_relative 'config/environment'
 
+
+Cli.new.welcome
+
 binding.pry
-Cli.new.main_menu
-
-
 0
-
+ 
 
 
