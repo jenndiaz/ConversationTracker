@@ -17,4 +17,4 @@ convo1 = Conversation.create(account_id: acc1.id, friend_id: friend1.id, date: '
 convo2 = Conversation.create(account_id: acc1.id, friend_id: friend2.id, date: '2020-08-04')
 convo3 = Conversation.create(account_id: acc1.id, friend_id: friend3.id, date: '2020-08-03')
 convo4 = Conversation.create(account_id: acc2.id, friend_id: friend5.id, date: '2020-08-03')
-convo5 = Conversation.create(account_id: acc2.id, friend_id: friend6.id, date: '2020-08-03')
+convo5 = Conversation.create(account_id: acc2.id, friend_id: friend6.id, date: '2020-08-03') 

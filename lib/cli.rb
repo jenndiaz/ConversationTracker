@@ -63,14 +63,18 @@ class Cli
             binding.pry
             main_menu
         when 2
-            delete_conversation
+            exfriend = prompt.ask("Who would you like to delete??")
+            exfriend_name = Friend.find_by(name: exfriend)
+            exfriend_name.destroy
+            puts "Your Converstion has been deleted! Go make find new friends!"
+            main_menu
         when 3 
             prompt = TTY::Prompt.new
             friend_chat = prompt.ask("Great job reaching out to a friend! Whom did you speak with?")
-           newconvo = Conversation.find_by(friend: friend_chat)
-           new_date = prompt.ask("On what date did you speak to them?")
-           binding.pry
-           newconvo.update(date: new_date)
+            friend = Friend.find_by(name: friend_chat)
+            newconvo = Conversation.find_by(friend: friend)
+            new_date = prompt.ask("On what date did you speak to them?")
+            newconvo.update(date: new_date)
            puts "Your conversation has been updated!"
         when 4 
             view_friends
@@ -80,12 +84,12 @@ class Cli
             exit
         end
 
-       def delete_conversation
-            exfriend = prompt.ask("Who would you like to delete??")
-            exfriend_name = Friend.find_by(name: exfriend)
-            exfriend_name.destroy
-            puts "delete"
-        end
+    #    def delete_conversation
+    #         exfriend = prompt.ask("Who would you like to delete??")
+    #         exfriend_name = Friend.find_by(name: exfriend)
+    #         exfriend_name.destroy
+    #         puts "delete"
+    #     end
         
         def view_friends
             Converastions.pluck(:friend) 
