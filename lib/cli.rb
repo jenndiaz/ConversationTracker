@@ -1,11 +1,11 @@
 require "tty-prompt"
 class Cli 
-    Prompt = TTY::Prompt.new
+    prompt = TTY::Prompt.new
     attr_accessor :username_input
 
     def welcome 
         puts "Welcome to Friendly Reminder"
-        @username_input = Prompt.ask("Please enter a new or existing username")
+        @username_input = prompt.ask("Please enter a new or existing username")
         find_user
     end
 
@@ -43,6 +43,6 @@ class Cli
         # when 5 
         #     puts "We hope you enjoied your Friendly Reminder! Come back soon!"
         #     welcome
-        # end
+        # end 📞 ☎️ 📲☏ 💻
 
     end
