@@ -65,7 +65,13 @@ class Cli
         when 2
             delete_conversation
         when 3 
-            update_conversation
+            prompt = TTY::Prompt.new
+            friend_chat = prompt.ask("Great job reaching out to a friend! Whom did you speak with?")
+           newconvo = Conversation.find_by(friend: friend_chat)
+           new_date = prompt.ask("On what date did you speak to them?")
+           binding.pry
+           newconvo.update(date: new_date)
+           puts "Your conversation has been updated!"
         when 4 
             view_friends
         when 5 
@@ -74,25 +80,11 @@ class Cli
             exit
         end
 
-        def new_conversation
-          
-        end
-
        def delete_conversation
-           
             exfriend = prompt.ask("Who would you like to delete??")
             exfriend_name = Friend.find_by(name: exfriend)
             exfriend_name.destroy
             puts "delete"
-        end
-
-        def update_conversation
-             prompt = TTY::Prompt.new
-             friend = prompt.ask("Great job reaching out to a friend! Whom did you speak with?")
-            newconvo = Conversation.find_by(name: friend)
-            new_date = prompt.ask("On what date did you speak to them?")
-            newconvo.update(date: new_date)
-            puts "update"
         end
         
         def view_friends
