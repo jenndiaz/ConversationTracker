@@ -1,18 +1,18 @@
-# Heading 1 Fridenly Reminder
+# Fridenly Reminder
 
 A friendly way to stay in contact
 
-## Heading 2 Table of contents
+## Table of contents
 
-## Heading 2 How to start
+## How to start
 
-## Heading 2 General Information
+## General Information
 
-## Heading 2 Video
+## Video
 
-## Heading 2 Technologies
+## Technologies
 
-## Heading 2 Set-Up
+## Set-Up
 
 1. run bundle install
 2. run rake db:migrate
