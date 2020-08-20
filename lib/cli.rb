@@ -1,7 +1,7 @@
 require "tty-prompt"
 class Cli 
     prompt = TTY::Prompt.new
-    attr_accessor :username_input
+    attr_accessor :username_input, :new_user
 
     def welcome 
         prompt = TTY::Prompt.new
@@ -19,7 +19,7 @@ class Cli
             if @found_user
                 puts "Welcome back, #{@found_user.username}!"
             else
-                Account.create(username: @username_input)
+                @new_user = Account.create(username: @username_input)
                 puts "Welcome, new friend, #{@username_input}!"
             end
             main_menu
@@ -33,7 +33,8 @@ class Cli
             "Delete Conversation" => 2,
             "Update Conversation" => 3, 
             "View Your Friends" => 4, 
-            "Exit Friendly Reminder" => 5
+            "Exit Friendly Reminder" => 5,
+            "Test View Friends/Dates" => 6
         }
         menu_response = prompt.select("Choose an option from below:".colorize(:green), choices)
         case menu_response
@@ -65,18 +66,62 @@ class Cli
            puts "Your conversation has been updated!"
            main_menu
         when 4 #View 
-            puts "here are your friends!"
-            sleep(1)
-            yourfriends = @found_user.friends 
-            yourfriends.each do |friend|
-                puts  friend.name
+            if @found_user
+                yourfriends = @found_user.friends
+            elsif @new_user
+                yourfriends = @new_user.friends
+                end
+            if yourfriends.empty?
+                puts "You haven't added any friends yet. Create a new conversation to get started.".colorize(:red)
+            else
+                puts "Here are your friends!"
+                sleep(1)
+                yourfriends.each do |friend|
+                    puts friend.name
             end
+        end
             sleep(1.5)
             main_menu
         when 5 
             puts "We hope you enjoied your Friendly Reminder! Come back soon!"
             sleep(3)
             exit
+        when 6
+            if @found_user
+                yourconversations = Conversation.where(account: @found_user.account)
+            elsif @new_user
+                yourconversations = Conversation.where(account: @new_user.account)
+            end
+            if yourconversations.empty?
+                puts "You haven't added any friends yet. Create a new conversation to get started.".colorize(:red)
+            else
+                puts "Here are your friends!"
+                sleep(1)
+                yourconversations.each do |conversation|
+                    puts conversation.name conversation.date
+            end
+        end
+            sleep(1.5)
+            main_menu
+        end
         end
 
-    end
+        # def view_conversations
+        #     if @found_user
+        #         yourconversations = Conversation.where(account_id: @found_user.account_id)
+        #     elsif @new_user
+        #         yourconversations = Conversation.where(account_id: @new_user.account_id)
+        #     end
+        #     if yourconversations.empty?
+        #         puts "You haven't added any friends yet. Create a new conversation to get started.".colorize(:red)
+        #     else
+        #         puts "Here are your friends!"
+        #         sleep(1)
+        #         yourconversations.each do |conversation|
+        #             puts conversation.name conversation.date
+        #     end
+        # end
+        #     sleep(1.5)
+        #     main_menu
+        # end
+    # end
