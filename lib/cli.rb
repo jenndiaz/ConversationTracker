@@ -25,9 +25,11 @@ class Cli
         @found_user = Account.all.find_by(username: @username_input)
             if @found_user
                 puts "Welcome back, #{@found_user.username}!"
+                sleep(1)
             else
                 @new_user = Account.create(username: @username_input)
                 puts "Welcome, new friend, #{@username_input}!"
+                sleep(1)
             end
             main_menu
         end
@@ -56,7 +58,7 @@ class Cli
             Conversation.create account: @found_user, friend: new_friend, date: date
             puts "Your new friend has been entered! Remeber to keep in touch!"
            # binding.pry
-           sleep(1.5)
+           sleep(1)
            system("clear")
            welcome_art
            main_menu
@@ -65,13 +67,14 @@ class Cli
             exfriend_name = Friend.find_by(name: exfriend)
             exfriend_name.destroy
             puts "Your Converstion has been deleted! Go make find new friends!"
-            sleep(1.5)
+            sleep(1)
             system("clear")
             welcome_art
             main_menu
         when 3 #Update
             prompt = TTY::Prompt.new
             friend_chat = prompt.ask("Great job reaching out to a friend! Whom did you speak with?")
+            sleep(1)
             friend = Friend.find_by(name: friend_chat)
             newconvo = Conversation.find_by(friend: friend)
                 if newconvo == nil
