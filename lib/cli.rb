@@ -74,14 +74,19 @@ class Cli
             friend_chat = prompt.ask("Great job reaching out to a friend! Whom did you speak with?")
             friend = Friend.find_by(name: friend_chat)
             newconvo = Conversation.find_by(friend: friend)
+                if newconvo == nil
+                    puts "You haven't started a conversation with this friend yet. Create a new conversation to get started.".colorize(:red)
+                    sleep(1)
+                else
             new_date = prompt.ask("On what date did you speak to them?")
             newconvo.update(date: new_date)
-           puts "Your conversation has been updated!"
-           sleep(1.5)
-           system("clear")
-           welcome_art
-           main_menu
-        when 4 #View 
+            puts "Your conversation has been updated!"
+                end
+            sleep(1)
+            system("clear")
+            welcome_art
+            main_menu
+        when 4 #View friends
             if @found_user
                 yourfriends = @found_user.friends
             elsif @new_user
@@ -101,14 +106,16 @@ class Cli
             welcome_art
             main_menu
         when 5 
-            puts "We hope you enjoied your Friendly Reminder! Come back soon!"
+            puts "We hope you enjoyed your Friendly Reminder! Come back soon!"
             sleep(3)
             exit
         when 6
             if @found_user
-                yourconversations = Conversation.where(account: @found_user.account)
+                found_user_id = @found_user.id
+                yourconversations = Conversation.where(account: found_user_id)
             elsif @new_user
-                yourconversations = Conversation.where(account: @new_user.account)
+                new_user_id = @new_user.id
+                yourconversations = Conversation.where(account: new_user_id)
             end
             if yourconversations.empty?
                 puts "You haven't added any friends yet. Create a new conversation to get started.".colorize(:red)
@@ -116,7 +123,7 @@ class Cli
                 puts "Here are your friends!"
                 sleep(1)
                 yourconversations.each do |conversation|
-                    puts conversation.name conversation.date
+                    puts conversation.date
             end
         end
             sleep(1.5)
