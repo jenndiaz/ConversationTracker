@@ -3,11 +3,18 @@ class Cli
     prompt = TTY::Prompt.new
     attr_accessor :username_input
 
+    def welcome_art 
+        font = TTY::Font.new(:doom) 
+        puts (font.write("Friendly Reminder")).colorize(:cyan)
+    end
+
     def welcome 
-        prompt = TTY::Prompt.new
+        system("clear")
+        welcome_art
+        prompt = TTY::Prompt.new(active_color: :cyan)
         # binding.pry
         puts "Welcome to Friendly Reminder"  
-        @username_input = prompt.ask("Please enter a new or existing username".colorize(:green)) do |q|
+        @username_input = prompt.ask("Please enter a new or existing username".colorize(:cyan)) do |q|
             q.required true
             q.modify :strip, :capitalize 
         end
@@ -27,7 +34,7 @@ class Cli
     end
     
     def main_menu 
-        prompt = TTY::Prompt.new
+        prompt = TTY::Prompt.new(active_color: :cyan)
         choices = {
             "Create New Converastion" => 1,
             "Delete Conversation" => 2,
@@ -35,10 +42,10 @@ class Cli
             "View Your Friends" => 4, 
             "Exit Friendly Reminder" => 5
         }
-        menu_response = prompt.select("Choose an option from below:".colorize(:green), choices)
+        menu_response = prompt.select("Choose an option from below:".colorize(:cyan), choices)
         case menu_response
         when 1 #create
-            prompt = TTY::Prompt.new
+            prompt = TTY::Prompt.new(active_color: :cyan)
             new_friend_name = prompt.ask("Who is your friend?") do |q|
                 q.required true
                 q.modify :strip, :capitalize 
@@ -48,12 +55,18 @@ class Cli
             Conversation.create account: @found_user, friend: new_friend, date: date
             puts "Your new friend has been entered! Remeber to keep in touch!"
            # binding.pry
-            main_menu
+           sleep(1.5)
+           system("clear")
+           welcome_art
+           main_menu
         when 2 #delete
             exfriend = prompt.ask("Who would you like to delete??")
             exfriend_name = Friend.find_by(name: exfriend)
             exfriend_name.destroy
             puts "Your Converstion has been deleted! Go make find new friends!"
+            sleep(1.5)
+            system("clear")
+            welcome_art
             main_menu
         when 3 #Update
             prompt = TTY::Prompt.new
@@ -63,6 +76,9 @@ class Cli
             new_date = prompt.ask("On what date did you speak to them?")
             newconvo.update(date: new_date)
            puts "Your conversation has been updated!"
+           sleep(1.5)
+           system("clear")
+           welcome_art
            main_menu
         when 4 #View 
             puts "here are your friends!"
@@ -72,6 +88,8 @@ class Cli
                 puts  friend.name
             end
             sleep(1.5)
+            system("clear")
+            welcome_art
             main_menu
         when 5 
             puts "We hope you enjoied your Friendly Reminder! Come back soon!"
