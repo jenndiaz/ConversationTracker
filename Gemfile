@@ -14,3 +14,4 @@ gem "require_all", "~> 3.0"
 gem "require"
 gem "tty-prompt", "~>0.21.0"
 gem 'colorize', '~> 0.8.1'
+gem "tty-font"
