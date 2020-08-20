@@ -53,7 +53,7 @@ class Cli
                 q.required true
                 q.modify :strip, :capitalize 
                 end
-            date = prompt.ask ("On what date was your most recent conversation?")
+            date = prompt.ask ("On what date was your most recent conversation? YYYY-MM-DD")
            #binding.pry 
             new_friend = Friend.create(name: new_friend_name, occupation: nil)
             new_friend.save
@@ -93,8 +93,8 @@ class Cli
                     puts "You haven't started a conversation with this friend yet. Add a new conversation to get started.".colorize(:red)
                     sleep(1)
                 else
-                    new_date = prompt.ask("On what date did you speak to them?")
-                    newconvo.update(date: new_date).save
+                    new_date = prompt.ask("On what date did you speak to them? YYYY-MM-DD")
+                    newconvo.update(date: new_date)
                     puts "Your conversation has been updated!"
                 end
             sleep(1)
@@ -102,6 +102,7 @@ class Cli
             welcome_art
             main_menu
         when 4 #View friends
+            prompt = TTY::Prompt.new(active_color: :cyan)
             if @found_user
                 found_user_id = @found_user.id
                 yourconversations = Conversation.where(account: found_user_id)
@@ -119,7 +120,9 @@ class Cli
                     puts "#{conversation.friend.name}:  #{conversation.date} "
                 end
             end
-            sleep(1.5)
+            prompt.keypress("Press any key to return to the main menu")
+            system("clear")
+            welcome_art
             main_menu      
         when 5 
             puts "We hope you enjoyed your Friendly Reminder! Come back soon!"
@@ -127,41 +130,3 @@ class Cli
             exit
         end
     end        
-        # def view_conversations
-        #     if @found_user
-        #         yourconversations = Conversation.where(account_id: @found_user.account_id)
-        #     elsif @new_user
-        #         yourconversations = Conversation.where(account_id: @new_user.account_id)
-        #     end
-        #     if yourconversations.empty?
-        #         puts "You haven't added any friends yet. Create a new conversation to get started.".colorize(:red)
-        #     else
-        #         puts "Here are your friends!"
-        #         sleep(1)
-        #         yourconversations.each do |conversation|
-        #             puts conversation.name conversation.date
-        #     end
-        # end
-        #     sleep(1.5)
-        #     main_menu
-        # end
-    # end
-    # if @found_user
-    #     yourfriends = @found_user.friends
-    # elsif @new_user
-    #     yourfriends = @new_user.friends
-    #     end
-    # yourfriends.reload
-    # if yourfriends.empty?
-    #     puts "You haven't added any friends yet. Add a new conversation to get started.".colorize(:red)
-    # else
-    #     puts "Here are your friends!"
-    #     sleep(1)
-    #     yourfriends.each do |friend|
-    #     puts friend.name
-    #     end
-    # end
-    # sleep(1.5)
-    # system("clear")
-    # welcome_art
-    # main_menu
