@@ -17,10 +17,10 @@ class Cli
     def find_user
         @found_user = Account.all.find_by(username: @username_input)
             if @found_user
-                puts "Welcome back, #{@found_user.username}!".colorize(:green)
+                puts "Welcome back, #{@found_user.username}!"
             else
                 Account.create(username: @username_input)
-                puts "Welcome, new friend, #{@username_input}!".colorize(:green)
+                puts "Welcome, new friend, #{@username_input}!"
             end
             main_menu
         end
@@ -47,7 +47,7 @@ class Cli
             new_friend = Friend.create(name: new_friend_name, occupation: nil)
             Conversation.create account: @found_user, friend: new_friend, date: date
             puts "Your new friend has been entered! Remeber to keep in touch!"
-            binding.pry
+           # binding.pry
             main_menu
         when 2 #delete
             exfriend = prompt.ask("Who would you like to delete??")
@@ -66,19 +66,17 @@ class Cli
            main_menu
         when 4 #View 
             puts "here are your friends!"
+            sleep(1)
             yourfriends = @found_user.friends 
             yourfriends.each do |friend|
                 puts  friend.name
             end
+            sleep(1.5)
             main_menu
         when 5 
             puts "We hope you enjoied your Friendly Reminder! Come back soon!"
-            sleep(4)
+            sleep(3)
             exit
         end
 
-        # def view_friends
-        #     Converastions.pluck(:friend) 
-        #     puts "here are your friends!"
-        # end
     end

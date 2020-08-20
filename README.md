@@ -1,20 +1,28 @@
 # Fridenly Reminder
 
-A friendly way to stay in contact
+A friendly way to rember to stay in contact!
 
 ## Table of contents
-*[Information](##Information)
-*[General Infomration]
-*[Video](##Video)
-*[Technologies](##Technologies)
-*[Set-up](##Set-up)
-*[Code Examples](##Code Examples)
-*[Features](##Features)
-*[Status](##Status)
-*[Inspiration](##Inspiration)
-*[Contact](##Contact)
-*[Liscene](##Liscene)
 
+*[Information](##Information)
+
+*[Video](##Video)
+
+*[Technologies](##Technologies)
+
+*[Set-up](##Set-up)
+
+*[Code] (##Code)
+
+*[Features](##Features)
+
+*[Status](##Status)
+
+*[Inspiration](##Inspiration)
+
+*[Contact](##Contact)
+
+*[Liscene](##Liscene)
 
 ## Information
 
@@ -38,13 +46,9 @@ A friendly way to stay in contact
 
 ## Inspiration
 
-
 ## Contact
 
 Created by[Jennifer Grenier](https://www.linkedin.com/in/jennifer-a-grenier/) and [Kelsey Creehan](https://www.linkedin.com/in/kelsey-creehan-196b8a55/)
 Please feel free to contact us!
 
 ## Liscene
-
-[Click here to view]( )
-
