@@ -37,9 +37,9 @@ View Your Friends and Conversation Date
 
 ## Video
 
-![Screenshot of app](project_1_video_screenshot.png)
+![Screenshot of app](<href a=https://www.youtube.com/watch?v=CLVa68XU_8U/> project_1_video_screenshot.png </href>)
 
-[Video of Friendly Reminder](zoom_0.mp4)
+<!-- [Video of Friendly Reminder](zoom_0.mp4) -->
 
 ## Technologies
 
