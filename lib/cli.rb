@@ -41,7 +41,7 @@ class Cli
             "Add New Conversation with Friend" => 1,
             "Delete Conversation with Friend" => 2,
             "Update Conversation with Friend" => 3, 
-            "View Your Friends and Conversation Date" => 4, 
+            "View Your Friends and Conversation Dates" => 4, 
             "Exit Friendly Reminder" => 5
     
         }
@@ -120,7 +120,7 @@ class Cli
                     puts "#{conversation.friend.name}:  #{conversation.date} "
                 end
             end
-            prompt.keypress("Press any key to return to the main menu")
+            prompt.keypress("Press any key to return to the main menu".colorize(:cyan) )
             system("clear")
             welcome_art
             main_menu      
