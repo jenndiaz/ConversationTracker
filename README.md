@@ -9,6 +9,7 @@ Sometimes...you just need a friendly reminder.
 ## Information and Features
 
 Friendly Reminder is a CLI application that allows users to track and maintain their relationships.
+
 ### Users can log on with a new or existing username and proceed to the main menu.
 
 Add New Conversation with Friend
@@ -35,6 +36,10 @@ View Your Friends and Conversation Date
 -This allows the user to instantly see which conversation has been neglected the longest, and therefore who they should contact next.
 
 ## Video
+
+[Video of Friendly Reminder](https://youtu.be/CLVa68XU_8U)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CLVa68XU_8U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Technologies
 
