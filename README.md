@@ -37,9 +37,9 @@ View Your Friends and Conversation Date
 
 ## Video
 
-[Video of Friendly Reminder](https://youtu.be/CLVa68XU_8U)
+[Screenshot of app](https://imgur.com/a/DWkPWJc)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CLVa68XU_8U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Video of Friendly Reminder](https://youtu.be/CLVa68XU_8U)
 
 ## Technologies
 
