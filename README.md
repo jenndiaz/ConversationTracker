@@ -2,33 +2,11 @@
 
 Staying in touch with your friends and colleagues is no easy task, and right now it's more important than ever to maintain those relationships.
 Even with the best intentions at heart, time can pass by quickly, leaving weeks or even months since you last contacted your friend.
-You can improve your relationships and hold yourself accountable by simply keeping track of who is in your network and when you spoke last. 
+You can improve your relationships and hold yourself accountable by simply keeping track of who is in your network and when you spoke last.
 
 Sometimes...you just need a friendly reminder.
 
-## Table of contents
-
-*[Information](##Information)
-
-*[Video](##Video)
-
-*[Technologies](##Technologies)
-
-*[Set-up](##Set-up)
-
-*[Code] (##Code)
-
-*[Features](##Features)
-
-*[Status](##Status)
-
-*[Inspiration](##Inspiration)
-
-*[Contact](##Contact)
-
-*[Liscene](##Liscene)
-
-## Information
+## Information and Features
 
 Friendly Reminder is a CLI application that allows users to track and maintain their relationships. 
 Users can log on with a new or existing username and proceed to the main menu.
@@ -47,28 +25,33 @@ Users can log on with a new or existing username and proceed to the main menu.
 ## Video
 
 ## Technologies
+
 Friendly Reminder was built using Ruby 2.7 and ActiveRecord.
-## Set-up
 
-1. run bundle install
-2. run rake db:migrate
-3. run rake db:seed
-4. run ruby runner.rb
-5. prepare for your friendly reminder!
+## How to use
 
-## Code Examples
+1. Fork and clone this repository, open in a code editor.
 
-## Features
+2. From the root directory of this project in the terminal run  
+    ```bundle install```
 
-## Status
+3. Create local database tables with
+    ```rake db:migrate```
 
+4. Seed the tables with
+    ```rake db:seed```
+
+5. Start the app with
+    ```ruby runner.rb```
+
+6. prepare for your friendly reminder!
 
 ## Inspiration
+
 Friendly Reminder is the product of our Module 1 partner project for the Immersive Software Engineering Bootcamp at the Flatiron School in Denver, CO.
 This application is our first programming project in any language and we are very open to any feedback or suggestions!
+
 ## Contact
 
 Created by[Jennifer Grenier](https://www.linkedin.com/in/jennifer-a-grenier/) and [Kelsey Creehan](https://www.linkedin.com/in/kelsey-creehan-196b8a55/)
 Please feel free to contact us!
-
-## Liscene
