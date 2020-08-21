@@ -39,7 +39,7 @@ View Your Friends and Conversation Date
 
 ![Screenshot of app](project_1_video_screenshot.png)
 
-[Video of Friendly Reminder](https://youtu.be/CLVa68XU_8U)
+[Video of Friendly Reminder](zoom_0.mp4)
 
 ## Technologies
 
